@@ -43,7 +43,7 @@
 
   --sale-max: 1190px;
   --sale-gap: 24px;
-  --sale-r: 1;
+  --sale-r: 3/4;
   --sale-ul: 130px;
   --sale-title-mb: 18px;
   --sale-per-view-desktop: 4;
@@ -116,6 +116,20 @@ body{
   align-items: center;
 }
 
+.masthead{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transform: translateY(0);
+  transition: transform .3s ease;
+}
+
+.masthead--hidden{
+  transform: translateY(-100%);
+}
+
 .hdr{
   background: var(--black);
   color: var(--white);
@@ -123,7 +137,7 @@ body{
 }
 
 .hdr-row{
-  height: 86px;
+  height: 62px;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -349,6 +363,38 @@ body{
 
 .chat:hover{
   background: #101010;
+}
+
+/* кнопка "наверх" справа от чата */
+.to-top{
+  position: fixed;
+  right: 24px;
+  bottom: 100px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.12);
+  opacity: 0;
+  transform: translateX(120%);
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+  z-index: 90;
+}
+
+.to-top--visible{
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.to-top svg{
+  display: block;
 }
 
 .looks{
@@ -610,7 +656,7 @@ body{
   border-radius: 4px;
 }
 
-.salewish{
+.salewish, .newwish{
   position: absolute;
   right: 10px;
   top: 10px;
@@ -625,7 +671,7 @@ body{
   cursor: pointer;
 }
 
-.salewish:hover{
+.salewish:hover, .newwish:hover{
   box-shadow: 0 2px 10px rgba(0,0,0,.08);
 }
 
@@ -659,7 +705,7 @@ body{
 }
 
 .saleold{
-  color: #9a9a9a;
+  color: gray;
   font-size: 12px;
 }
 
@@ -692,5 +738,341 @@ body{
   }
   .tile-cta{
     bottom: 20px;
+  }
+}
+
+.heart-icon{
+  display:block;
+}
+
+/* Новинки */
+
+.new{
+  padding: 56px 0 40px;
+  background: #fff;
+}
+
+.new .wrap{
+  max-width: var(--sale-max);   /* такая же ширина, как у ЗНИЖКИ */
+  margin: 0 auto;
+  padding: 0 20px;              /* тот же отступ, что и у .sale .wrap */
+}
+
+.newhd{
+  display:flex;
+  align-items:flex-end;
+  justify-content:flex-start;
+  margin-bottom: 24px;
+}
+
+.newttl{
+  margin:0;
+  font-weight:700;
+  font-size:22px;
+  letter-spacing:.08em;
+}
+
+.newttl::after{
+  content:"";
+  display:block;
+  width:130px;
+  height:3px;
+  margin-top:10px;
+  background:#000;
+}
+
+.newgrid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:24px;
+}
+
+.newcard{
+  background:#fff;
+}
+
+.newpic{
+  position:relative;
+  width:100%;
+  aspect-ratio: var(--sale-r);
+  background:#eee;
+  overflow:hidden;
+}
+
+.newpic img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .45s ease;
+  will-change:transform;
+}
+
+.newcard:hover .newpic img{
+  transform:scale(1.05);
+}
+
+.newbadge{
+  position:absolute;
+  right:22px;
+  bottom:26px;
+  padding:7px 20px;
+  background:rgba(247,125,7,.86);
+  color:#fff;
+  font-weight:700;
+  font-size:13px;
+  border-radius:2px;
+}
+
+.newbody{
+  padding:12px 4px 10px;
+}
+
+.newname{
+  margin:0 0 6px;
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:.01em;
+}
+
+.newsize{
+  font-size:12px;
+  color:#7b7b7b;
+  margin-bottom:8px;
+}
+
+.newprice{
+  font-weight:700;
+  font-size:15px;
+}
+
+/* Футер */
+
+.ft{
+  margin-top: 60px;
+  padding: 72px 0 110px;
+  background:#f3f7f6;
+}
+
+.ft .wrap{
+  max-width: var(--sale-max);   /* выравниваем по ЗНИЖКИ/НОВИНКИ */
+  margin:0 auto;
+  padding:0 20px;               /* такой же отступ слева/справа */
+}
+
+.ft-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:120px;
+}
+
+.ft-col{
+  flex:0 0 auto;
+}
+
+.ft-col-cat{
+  min-width:230px;
+}
+
+.ft-col-info{
+  min-width:420px;
+}
+
+.ft-col-social{
+  min-width:280px;
+}
+
+.ft-title{
+  margin:0 0 32px;
+  font-weight:700;
+  font-size:18px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.ft-nav{
+  display:block;
+}
+
+.ft-link{
+  display:block;
+  margin-bottom:14px;
+  font-size:14px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#111;
+  text-decoration:none;
+}
+
+.ft-link--sale{
+  color:#ff3c64;
+}
+
+.ft-link--new{
+  color:#2fd14f;
+}
+
+.ft-info-grid{
+  display:flex;
+  gap:80px;
+  margin-bottom:26px;
+}
+
+.ft-info-col .ft-link:last-child{
+  margin-bottom:0;
+}
+
+.ft-pay{
+  margin-top:8px;
+}
+
+.ft-pay-img{
+  display:block;
+  max-width:190px;
+  height:auto;
+}
+
+.ft-social-row{
+  display:flex;
+  gap:16px;
+  margin-bottom:26px;
+}
+
+.ft-social{
+  width:44px;
+  height:44px;
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+}
+
+.ft-social-icon{
+  width:32px;
+  height:32px;
+  display:block;
+}
+
+.ft-store-row{
+  display:flex;
+  gap:18px;
+  margin-bottom:26px;
+}
+
+.ft-store{
+  display:block;
+  width:121px;
+  height:36px;
+  border-radius:6px;
+  overflow:hidden;
+}
+
+.ft-store img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.ft-sub-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.ft-sub-ico{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.ft-sub-icon{
+  width:26px;
+  height:24px;
+  display:block;
+}
+
+.ft-sub-link{
+  font-size:14px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:#000;
+  text-decoration:none;
+}
+
+.ft-bottom{
+  margin-top:90px;
+  text-align:center;
+}
+
+.ft-bottom-line{
+  width:70px;
+  height:3px;
+  background:#000;
+  margin:0 auto 18px;
+}
+
+.ft-copy{
+  font-size:12px;
+  color:#9b9b9b;
+}
+
+/* Адаптив для новинок и футера */
+
+@media (max-width:1360px){
+  .newgrid{
+    grid-template-columns:repeat(3, minmax(0,1fr));
+  }
+}
+
+@media (max-width:1100px){
+  .newgrid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+  .ft-row{
+    flex-wrap:wrap;
+    gap:40px 80px;
+  }
+  .ft-col-cat,
+  .ft-col-info,
+  .ft-col-social{
+    min-width:0;
+    flex:1 1 calc(50% - 40px);
+  }
+}
+
+@media (max-width:740px){
+  .new{
+    padding:40px 0 32px;
+  }
+  .new .wrap{
+    padding:0 20px;
+  }
+  .newgrid{
+    grid-template-columns:1fr;
+  }
+  .ft{
+    padding:48px 0 80px;
+  }
+  .ft .wrap{
+    padding:0 24px;
+  }
+  .ft-row{
+    flex-direction:column;
+    gap:32px;
+  }
+  .ft-col-cat,
+  .ft-col-info,
+  .ft-col-social{
+    flex:1 1 auto;
+  }
+  .ft-info-grid{
+    flex-direction:column;
+    gap:10px;
+  }
+  .ft-store-row{
+    flex-direction:column;
   }
 }

@@ -1,0 +1,248 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #ffffff;
+  color: #f5f5f7;
+}
+
+.admin-header {
+  background: #0b0b0d;
+  border-bottom: 1px solid #2a2a2e;
+  padding: 14px 24px;
+}
+
+.admin-header__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.admin-logo {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.admin-logo span {
+  font-weight: 500;
+  font-size: 12px;
+  background: #ffe000;
+  color: #111;
+  padding: 2px 6px;
+  border-radius: 999px;
+  margin-left: 6px;
+}
+
+.admin-header__info {
+  font-size: 13px;
+  color: #9f9fa5;
+}
+
+.admin-main {
+  max-width: 960px;
+  margin: 32px auto 40px;
+  padding: 0 16px 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .admin-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-card,
+.admin-list-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 20px 24px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+  border: 1px solid #23252b;
+}
+
+.admin-title {
+  font-size: 22px;
+  margin: 0 0 8px;
+  color: #000000;
+}
+
+.admin-subtitle {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: #a0a0aa;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.clradm {
+  color : #000000;
+}
+
+label {
+  font-size: 13px;
+  color: #d0d0d5;
+}
+
+input[type="text"] {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #30323b;
+  background-color: #101116;
+  color: #f5f5f7;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+}
+
+input[type="text"]::placeholder {
+  color: #5c5d67;
+}
+
+input[type="text"]:focus {
+  border-color: #ffe000;
+  box-shadow: 0 0 0 1px rgba(255, 224, 0, 0.3);
+  background-color: #13141a;
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease, color 0.12s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ffe000, #ffb800);
+  color: #111;
+  margin-top: 4px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background: #1e2027;
+  color: #f5f5f7;
+  border-radius: 999px;
+  padding-inline: 12px;
+  font-size: 13px;
+}
+
+.btn-secondary:hover {
+  background: #262832;
+}
+
+.btn-secondary:active {
+  background: #1a1c23;
+}
+
+.admin-list-card h2 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.list-header h2 {
+  font-size: 16px;
+}
+
+.empty-state {
+  font-size: 13px;
+  color: #8e8f99;
+  margin: 4px 0 10px;
+}
+
+.product-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 12px;
+  border: 1px solid #252731;
+  background-color: #101116;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.product-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) 0.7fr 1fr;
+  gap: 10px;
+  align-items: baseline;
+  padding: 10px 12px;
+  font-size: 13px;
+  border-bottom: 1px solid #1f2028;
+}
+
+.product-item:last-child {
+  border-bottom: none;
+}
+
+.product-name {
+  font-weight: 600;
+}
+
+.product-price {
+  justify-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #191b24;
+  border: 1px solid #333542;
+}
+
+.product-date {
+  justify-self: flex-end;
+  color: #777887;
+  font-size: 11px;
+}
+
+.admin-footer {
+  border-top: 1px solid #23252b;
+  padding: 12px 24px 16px;
+  text-align: center;
+  font-size: 12px;
+  color: #767784;
+  background-color: #ffffff;
+}
