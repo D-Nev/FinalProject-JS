@@ -1,0 +1,376 @@
+.basket-page {
+  padding: 220px 0 120px;
+  background: var(--page);
+}
+
+.basket-wrap {
+  max-width: var(--sale-max);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  column-gap: 56px;
+  align-items: flex-start;
+}
+
+/* очистити кошик */
+
+.basket-header {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.basket-title {
+  margin: 0 0 12px;
+  font-size: 32px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.basket-clear {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.basket-main {
+  grid-column: 1 / 2;
+}
+
+.basket-divider {
+  border-top: 1px solid #e5e5e5;
+  margin-bottom: 24px;
+}
+
+.basket-items {
+  border-top: 1px solid #e5e5e5;
+}
+
+.basket-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 140px 140px 40px;
+  column-gap: 24px;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 14px;
+}
+
+/* Ліва частина */
+
+.basket-item-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.basket-item-thumb {
+  display: block;
+  width: 96px;
+  height: 96px;
+  flex: 0 0 96px;
+  overflow: hidden;
+}
+
+.basket-item-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.basket-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.basket-item-name {
+  font-size: 15px;
+  text-decoration: none;
+  color: #151515;
+}
+
+.basket-item-name:hover {
+  text-decoration: underline;
+}
+
+.basket-item-article,
+.basket-item-size {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.basket-item-size span {
+  font-weight: 600;
+  color: #151515;
+}
+
+/* Кількість */
+
+.basket-item-qty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.basket-qty-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0;
+}
+
+.basket-qty-value {
+  min-width: 16px;
+  text-align: center;
+}
+
+/* Ціна */
+
+.basket-item-price {
+  text-align: right;
+}
+
+.basket-price-current {
+  display: block;
+  font-size: 18px;
+  color: #d92b2b;
+}
+
+.basket-price-old {
+  display: block;
+  font-size: 13px;
+  color: #b0b0b0;
+  text-decoration: line-through;
+  margin-top: 4px;
+}
+
+/* Видалення */
+
+.basket-item-remove {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.basket-item-remove-ico {
+  font-size: 18px;
+}
+
+/* Порожній кошик */
+
+.basket-empty {
+  margin-top: 140px;
+  text-align: center;
+  display: none;
+}
+
+.basket-empty-inner {
+  display: inline-block;
+}
+
+.basket-empty-img {
+  width: 140px;
+  height: auto;
+  margin-bottom: 16px;
+  opacity: 0.85;
+}
+
+.basket-empty-title {
+  font-size: 18px;
+  margin: 0 0 4px;
+}
+
+.basket-empty-text {
+  font-size: 13px;
+  color: #777;
+  margin: 0;
+}
+
+/* Підсумки */
+
+.basket-sidebar {
+  grid-column: 2 / 3;
+}
+
+.basket-sidebar-inner {
+  background: #f6f6f6;
+  padding: 32px 28px 36px;
+  font-size: 13px;
+}
+
+.basket-sidebar-title {
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+
+.basket-bonus-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.basket-bonus-row--info {
+  align-items: flex-start;
+}
+
+.basket-bonus-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #999;
+  font-size: 11px;
+  margin-right: 8px;
+}
+
+.basket-bonus-text {
+  font-size: 12px;
+  color: #777;
+}
+
+.basket-bonus-label {
+  font-weight: 600;
+}
+
+.basket-bonus-caption {
+  font-size: 11px;
+  color: #777;
+}
+
+.basket-promo {
+  padding: 18px 0 24px;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 8px 0 24px;
+}
+
+.basket-promo-box {
+  display: none;
+  margin-top: 10px;
+  gap: 8px;
+}
+
+.basket-promo-input {
+  flex: 1;
+  padding: 6px 8px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  min-width: 0;
+}
+
+.basket-promo-btn {
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 10px;
+  background: #000;
+  color: #fff;
+}
+
+.basket-promo-msg {
+  margin-top: 6px;
+  font-size: 11px;
+}
+
+.basket-promo-msg--ok {
+  color: #009f16;
+}
+
+.basket-promo-msg--error {
+  color: #d92b2b;
+}
+
+.basket-promo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.basket-summary-total {
+  margin-bottom: 28px;
+}
+
+.basket-summary-caption {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.basket-summary-amount {
+  font-size: 22px;
+}
+
+.basket-delivery-title {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.basket-delivery-text {
+  font-size: 12px;
+  color: #777;
+  margin: 0 0 6px;
+}
+
+/* Адаптив */
+
+@media (max-width: 1100px) {
+  .basket-wrap {
+    grid-template-columns: 1fr;
+    row-gap: 40px;
+  }
+
+  .basket-sidebar {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .basket-item {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 12px;
+  }
+
+  .basket-item-left {
+    justify-content: flex-start;
+  }
+
+  .basket-item-qty,
+  .basket-item-price,
+  .basket-item-remove {
+    justify-self: flex-start;
+  }
+}
+
+
+

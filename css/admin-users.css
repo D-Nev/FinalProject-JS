@@ -1,0 +1,182 @@
+.admin-users{
+  padding: 150px 0 120px;
+  background: var(--page);
+}
+
+.admin-users .wrap{
+  max-width: var(--sale-max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.admin-users-header{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 32px;
+}
+
+.admin-users-title{
+  font-size: 28px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.admin-users-subtitle{
+  font-size: 14px;
+  color: #777;
+}
+
+.admin-users-layout{
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+  gap: 32px;
+}
+
+.admin-users-block-title{
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 16px;
+}
+
+/* Форма */
+
+.admin-users-form{
+  background: #f7f7f7;
+  border-radius: 8px;
+  padding: 20px 24px 24px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.05);
+}
+
+.admin-users-field{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.admin-users-field label{
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 4px;
+}
+
+.admin-users-field input{
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.admin-users-field input:focus{
+  border-color: #000;
+}
+
+.admin-users-submit{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: none;
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.admin-users-submit:hover{
+  background: #222;
+}
+
+.admin-users-hint{
+  margin-top: 8px;
+  font-size: 12px;
+  color: #777;
+}
+
+/* Список користувачів */
+
+.admin-users-list-block{
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px 24px 24px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.05);
+}
+
+.admin-users-list-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.admin-users-refresh{
+  border: 1px solid #e0e0e0;
+  border-radius: 999px;
+  background: #fafafa;
+  padding: 6px 14px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  cursor: pointer;
+}
+
+.admin-users-refresh:hover{
+  background: #f0f0f0;
+}
+
+.admin-users-empty{
+  font-size: 14px;
+  color: #777;
+}
+
+.admin-users-list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-users-item{
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #e3e3e3;
+  background: #fafafa;
+}
+
+.admin-users-item-main{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.admin-users-name{
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.admin-users-phone{
+  font-size: 14px;
+  color: #333;
+}
+
+.admin-users-meta{
+  margin-top: 4px;
+  font-size: 11px;
+  color: #777;
+  display: flex;
+  gap: 12px;
+}
+
+@media (max-width: 900px){
+  .admin-users-layout{
+    grid-template-columns: 1fr;
+  }
+}

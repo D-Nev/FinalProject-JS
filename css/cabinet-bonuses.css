@@ -1,0 +1,70 @@
+.account-bonuses-title{
+  margin-bottom: 40px;
+}
+
+.account-bonuses{
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+  max-width: 900px;
+}
+
+.account-bonuses-summary{
+  min-width: 160px;
+}
+
+.account-bonuses-label{
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.account-bonuses-amount{
+  font-size: 24px;
+}
+
+.account-bonuses-loyalty{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  padding-bottom: 3px;
+  font-size: 14px;
+}
+
+.account-bonuses-icon{
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  font-size: 14px;
+}
+
+.account-bonuses-link{
+  text-transform: uppercase;
+  letter-spacing: .18em;
+}
+
+.account-bonuses-empty{
+  margin-top: 80px;
+  font-size: 14px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1024px){
+  .account-bonuses{
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .account-bonuses-empty{
+    margin-top: 60px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <title>Категорія | Магазин</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/category-page.css">
+</head>
+<body>
+
+<div id="layout-header"></div>
+
+<main class="category-page">
+  <section>
+    <h1 class="category-title" id="categoryTitle">КАТЕГОРІЯ</h1>
+
+    <div class="category-breadcrumbs" id="categoryBreadcrumbs">
+    </div>
+  </section>
+
+  <section class="filters-bar-wrapper">
+    <div class="filters-bar">
+
+      <div class="filter-block filter-block--price">
+        <div class="filter-title">ЦІНА</div>
+
+        <div class="price-slider-wrapper">
+          <div class="price-slider">
+            <input
+              type="range"
+              id="priceMinRange"
+              min="0"
+              max="10000"
+              step="10"
+              value="0"
+            >
+            <input
+              type="range"
+              id="priceMaxRange"
+              min="0"
+              max="10000"
+              step="10"
+              value="10000"
+            >
+          </div>
+        </div>
+
+        <div class="price-inputs">
+          <span>від</span>
+          <input type="number" id="priceMinInput" min="0" max="10000" step="10" value="0">
+          <span>до</span>
+          <input type="number" id="priceMaxInput" min="0" max="10000" step="10" value="10000">
+        </div>
+      </div>
+
+      <div class="filter-block filter-block--size">
+        <div class="filter-header js-size-filter-toggle">
+          <span class="filter-header__label">РОЗМІР</span>
+          <span class="filter-header__arrow"></span>
+        </div>
+        <div class="filter-line js-size-filter-toggle"></div>
+        <div class="filter-size-extra js-size-filter-label"></div>
+
+        <div class="size-popup" id="sizePopup">
+          <div class="size-popup__header">
+            <span class="size-popup__title">РОЗМІР</span>
+            <button type="button" class="size-popup__close" aria-label="Закрити"></button>
+          </div>
+
+          <div class="size-popup__grid">
+            <button type="button" class="size-option">XS</button>
+            <button type="button" class="size-option">S</button>
+            <button type="button" class="size-option">M</button>
+            <button type="button" class="size-option">L</button>
+            <button type="button" class="size-option">XL</button>
+            <button type="button" class="size-option">XXL</button>
+            <button type="button" class="size-option">XXXL</button>
+          </div>
+
+          <button type="button" class="size-popup__apply">ЗАСТОСУВАТИ</button>
+        </div>
+      </div>
+
+      <div class="filter-block filter-block--color">
+        <div class="filter-header js-color-filter-toggle">
+          <span class="filter-header__label">КОЛІР</span>
+          <span class="filter-header__arrow"></span>
+        </div>
+        <div class="filter-line js-color-filter-toggle"></div>
+        <div class="filter-color-extra js-color-filter-label"></div>
+
+        <div class="color-popup" id="colorPopup">
+          <div class="color-popup__header">
+            <span class="color-popup__title">КОЛІР</span>
+            <button type="button" class="color-popup__close" aria-label="Закрити"></button>
+          </div>
+
+          <div class="color-popup__list">
+            <div class="color-option" data-color="бежевий">
+              <span class="color-option__dot color-option__dot--beige"></span>
+              <span class="color-option__label">БЕЖЕВИЙ</span>
+            </div>
+            <div class="color-option" data-color="білий">
+              <span class="color-option__dot color-option__dot--white"></span>
+              <span class="color-option__label">БІЛИЙ</span>
+            </div>
+            <div class="color-option" data-color="зелений">
+              <span class="color-option__dot color-option__dot--green"></span>
+              <span class="color-option__label">ЗЕЛЕНИЙ</span>
+            </div>
+            <div class="color-option" data-color="коричневий">
+              <span class="color-option__dot color-option__dot--brown"></span>
+              <span class="color-option__label">КОРИЧНЕВИЙ</span>
+            </div>
+            <div class="color-option" data-color="молочний">
+              <span class="color-option__dot color-option__dot--milk"></span>
+              <span class="color-option__label">МОЛОЧНИЙ</span>
+            </div>
+            <div class="color-option" data-color="синій">
+              <span class="color-option__dot color-option__dot--blue"></span>
+              <span class="color-option__label">СИНІЙ</span>
+            </div>
+            <div class="color-option" data-color="сірий">
+              <span class="color-option__dot color-option__dot--grey"></span>
+              <span class="color-option__label">СІРИЙ</span>
+            </div>
+            <div class="color-option" data-color="хакі">
+              <span class="color-option__dot color-option__dot--khaki"></span>
+              <span class="color-option__label">ХАКІ</span>
+            </div>
+            <div class="color-option" data-color="червоний">
+              <span class="color-option__dot color-option__dot--red"></span>
+              <span class="color-option__label">ЧЕРВОНИЙ</span>
+            </div>
+            <div class="color-option" data-color="чорний">
+              <span class="color-option__dot color-option__dot--black"></span>
+              <span class="color-option__label">ЧОРНИЙ</span>
+            </div>
+            <div class="color-option" data-color="фіолетовий">
+              <span class="color-option__dot color-option__dot--violet"></span>
+              <span class="color-option__label">ФІОЛЕТОВИЙ</span>
+            </div>
+          </div>
+
+          <button type="button" class="color-popup__apply">ЗАСТОСУВАТИ</button>
+        </div>
+      </div>
+
+      <div class="filter-block filter-block--availability">
+        <div class="filter-header js-availability-filter-toggle">
+          <span class="filter-header__label">НАЯВНІСТЬ В МАГАЗИНІ</span>
+          <span class="filter-header__arrow"></span>
+        </div>
+        <div class="filter-line js-availability-filter-toggle"></div>
+        <button type="button" class="filter-reset">
+          СКИНУТИ ФІЛЬТР
+        </button>
+
+        <div class="availability-popup" id="availabilityPopup">
+          <div class="availability-popup__header">
+            <span class="availability-popup__title">НАЯВНІСТЬ В МАГАЗИНІ</span>
+            <button type="button" class="availability-popup__close" aria-label="Закрити"></button>
+          </div>
+
+          <div class="availability-popup__list">
+            <button type="button" class="store-option"
+                    data-store="ВІННИЦЯ, ВУЛ. СОБОРНА, 62">
+              ВІННИЦЯ, ВУЛ. СОБОРНА, 62
+            </button>
+
+            <button type="button" class="store-option"
+                    data-store="ДНІПРО, БУЛЬВАР ЄВРОПЕЙСЬКИЙ, 1Д (ТЦ ЄВРОПА, 4 ПОВЕРХ)">
+              ДНІПРО, БУЛЬВАР ЄВРОПЕЙСЬКИЙ, 1Д (ТЦ ЄВРОПА, 4 ПОВЕРХ)
+            </button>
+
+            <button type="button" class="store-option"
+                    data-store="ЖИТОМИР, ВУЛ. КИЇВСЬКА, 77, ТРЦ &quot;ГЛОБАЛ UA&quot;">
+              ЖИТОМИР, ВУЛ. КИЇВСЬКА, 77, ТРЦ "ГЛОБАЛ UA"
+            </button>
+
+            <button type="button" class="store-option"
+                    data-store="ЗАПОРІЖЖЯ, ПРОСПЕКТ СОБОРНИЙ, 135">
+              ЗАПОРІЖЖЯ, ПРОСПЕКТ СОБОРНИЙ, 135
+            </button>
+
+            <button type="button" class="store-option"
+                    data-store="ІВАНО-ФРАНКІВСЬК, ВУЛ. ШЕВЧЕНКА, 1">
+              ІВАНО-ФРАНКІВСЬК, ВУЛ. ШЕВЧЕНКА, 1
+            </button>
+
+            <button type="button" class="store-option"
+                    data-store="КИЇВ, ВУЛ. ГЕРОЇВ ПОЛКУ АЗОВ, 12, ТЦ &quot;LAKE PLAZA&quot;">
+              КИЇВ, ВУЛ. ГЕРОЇВ ПОЛКУ АЗОВ, 12, ТЦ "LAKE PLAZA"
+            </button>
+
+            <button type="button" class="store-option"
+                    data-store="КИЇВ, ВУЛ. ХРЕЩАТИК, 18">
+              КИЇВ, ВУЛ. ХРЕЩАТИК, 18
+            </button>
+
+            <button type="button" class="store-option"
+                    data-store="КИЇВ, ПРОСПЕКТ МИКОЛИ БАЖАНА, 38, ТЦ &quot;CLEVER&quot;, 2 ПОВЕРХ">
+              КИЇВ, ПРОСПЕКТ МИКОЛИ БАЖАНА, 38, ТЦ "CLEVER", 2 ПОВЕРХ
+            </button>
+
+            <button type="button" class="store-option"
+                    data-store="КРИВИЙ РІГ, ПРОСПЕКТ УНІВЕРСИТЕТСЬКИЙ, 4А">
+              КРИВИЙ РІГ, ПРОСПЕКТ УНІВЕРСИТЕТСЬКИЙ, 4А
+            </button>
+
+            <button type="button" class="store-option"
+                    data-store="ЛУЦЬК, ПРОСПЕКТ ВОЛІ, 1, ЦУМ, 4 ПОВЕРХ">
+              ЛУЦЬК, ПРОСПЕКТ ВОЛІ, 1, ЦУМ, 4 ПОВЕРХ
+            </button>
+          </div>
+
+          <button type="button" class="availability-popup__apply">ЗАСТОСУВАТИ</button>
+        </div>
+      </div>
+
+      <!-- СОРТУВАННЯ -->
+      <div class="filter-block filter-block--sort">
+        <div class="filter-header js-sort-filter-toggle">
+          <span class="filter-header__label">СОРТУВАННЯ</span>
+          <span class="filter-header__arrow"></span>
+        </div>
+        <div class="filter-line js-sort-filter-toggle"></div>
+        <div class="filter-sort-value js-sort-current">Спочатку нові</div>
+
+        <div class="sort-popup" id="sortPopup">
+          <div class="sort-popup__header">
+            <span class="sort-popup__title">СОРТУВАННЯ</span>
+            <button type="button" class="sort-popup__close" aria-label="Закрити"></button>
+          </div>
+
+          <div class="sort-popup__list">
+            <div class="sort-option sort-option--active"
+                 data-label="Спочатку нові"
+                 data-sort="new">
+              Спочатку нові
+            </div>
+            <div class="sort-option"
+                 data-label="Спочатку старі"
+                 data-sort="old">
+              Спочатку старі
+            </div>
+            <div class="sort-option"
+                 data-label="Від дешевих до дорогих"
+                 data-sort="cheap">
+              Від дешевих до дорогих
+            </div>
+            <div class="sort-option"
+                 data-label="Від дорогих до дешевих"
+                 data-sort="expensive">
+              Від дорогих до дешевих
+            </div>
+            <div class="sort-option"
+                 data-label="Спочатку зі знижками"
+                 data-sort="discount">
+              Спочатку зі знижками
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="category-products">
+    <div class="category-products__grid" id="categoryProductsGrid"></div>
+  </section>
+</main>
+
+<div id="layout-footer"></div>
+
+<script src="../js/shop-data.js"></script>
+<script src="../js/category-page.js"></script>
+<script src="../js/layout-header.js"></script>
+<script src="../js/layout-footer.js"></script>
+<script src="../js/order.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/page-main.js"></script>
+
+</body>
+</html>

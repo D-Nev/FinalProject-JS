@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Кошик</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/favorites.css">
+  <link rel="stylesheet" href="../css/basket.css">
+  <link rel="stylesheet" href="../css/order.css">
+</head>
+<body>
+
+<div id="layout-header"></div>
+<main class="page">
+
+  <section class="bookmarks" id="basketEmptyState">
+    <div class="wrap">
+      <div class="bookmarks-empty">
+        <h1 class="bookmarks-title">КОШИК</h1>
+        <div class="bookmarks-icon">
+          <img src="../assets/Illustration-empty-cart.7ae8ddc0.svg" alt="">
+        </div>
+        <p class="bookmarks-desc">У КОШИКУ НЕМАЄ ТОВАРІВ</p>
+        <a href="index.html" class="btn bookmarks-cta">ПЕРЕЙТИ В КАТАЛОГ</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="basket-page" id="basketFull" style="display:none;">
+    <div class="basket-wrap">
+
+      <header class="basket-header">
+        <h1 class="basket-title">КОШИК</h1>
+        <button type="button" class="basket-clear" id="basketClear">
+          очистити кошик
+        </button>
+      </header>
+
+      <section class="basket-main">
+        <div class="basket-divider"></div>
+
+        <div id="basketItems" class="basket-items"></div>
+      </section>
+
+      <aside class="basket-sidebar">
+        <div class="basket-sidebar-inner">
+          <h2 class="basket-sidebar-title">БОНУСИ</h2>
+
+          <div class="basket-bonus-row basket-bonus-row--info">
+            <span class="basket-bonus-icon">i</span>
+            <span class="basket-bonus-text">
+              Сплатити бонусами можна 50% від суми
+            </span>
+          </div>
+
+          <div class="basket-bonus-row">
+            <div>
+              <div class="basket-bonus-label">0 грн</div>
+              <div class="basket-bonus-caption">доступно</div>
+            </div>
+            <div>
+              <div class="basket-bonus-label">0 грн</div>
+              <div class="basket-bonus-caption">всього</div>
+            </div>
+          </div>
+
+          <div class="basket-promo">
+            <label class="basket-promo-checkbox">
+              <input type="checkbox" id="basketPromoCheckbox">
+              <span>Застосувати промокод</span>
+            </label>
+
+            <div class="basket-promo-box" id="basketPromoBox">
+              <input type="text"
+                     id="basketPromoInput"
+                     class="basket-promo-input"
+                     placeholder="Введіть промокод">
+              <button type="button"
+                      class="basket-promo-btn"
+                      id="basketPromoApply">
+                ЗАСТОСУВАТИ
+              </button>
+            </div>
+
+            <div class="basket-promo-msg" id="basketPromoMsg"></div>
+          </div>
+
+          <div class="basket-summary-total">
+            <div class="basket-summary-caption">
+              СУМА ДО ОПЛАТИ ЗА ТОВАР
+            </div>
+            <div class="basket-summary-amount" id="basketTotalAmount">
+              0 грн
+            </div>
+          </div>
+
+          <div class="basket-delivery">
+            <div class="basket-delivery-title">ДОСТАВКА</div>
+            <p class="basket-delivery-text">
+              Спочатку необхідно вибрати відділення
+            </p>
+            <p class="basket-delivery-text">
+              Остаточна вартість перевезення може відрізнятися від розрахованої
+            </p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="checkout-block" id="checkoutBlock" style="display:none;">
+    <h2 class="checkout-title">ОФОРМЛЕННЯ ЗАМОВЛЕННЯ</h2>
+
+    <form id="checkoutForm">
+      <div class="checkout-grid">
+
+        <div class="checkout-col">
+          <h3 class="checkout-col-title">ДАНІ ПОКУПЦЯ</h3>
+
+          <label class="checkout-field">
+            <span class="checkout-label">Ім’я та прізвище</span>
+            <input type="text"
+                   class="checkout-input"
+                   id="checkoutName"
+                   name="name"
+                   required>
+          </label>
+          <div class="checkout-error" id="checkoutNameError"></div>
+
+          <label class="checkout-field">
+            <span class="checkout-label">Телефон</span>
+            <input type="tel"
+                   class="checkout-input"
+                   id="checkoutPhone"
+                   name="phone"
+                   value="+380"
+                   required>
+          </label>
+          <div class="checkout-error" id="checkoutPhoneError"></div>
+
+          <label class="checkout-field checkout-field--wide">
+            <span class="checkout-label">Коментар до замовлення</span>
+            <textarea class="checkout-input checkout-input--textarea"
+                      id="checkoutComment"
+                      name="comment"></textarea>
+          </label>
+        </div>
+
+        <div class="checkout-col">
+          <h3 class="checkout-col-title">ДОСТАВКА</h3>
+
+          <label class="checkout-field">
+            <span class="checkout-label">Спосіб доставки</span>
+            <div class="checkout-select-wrap">
+              <select class="checkout-input checkout-select"
+                      id="checkoutDeliveryMethod"
+                      name="deliveryMethod">
+                <option value="nova_poshta">Нова Пошта</option>
+                <option value="ukrposhta">Укрпошта</option>
+                <option value="self_pickup">Самовивіз</option>
+              </select>
+            </div>
+          </label>
+
+          <label class="checkout-field">
+            <span class="checkout-label">Область</span>
+            <div class="checkout-select-wrap">
+              <select class="checkout-input checkout-select"
+                      id="checkoutRegion"
+                      name="region">
+                <option value="">Оберіть область</option>
+              </select>
+            </div>
+          </label>
+
+          <label class="checkout-field">
+            <span class="checkout-label">Місто</span>
+            <div class="checkout-select-wrap">
+              <select class="checkout-input checkout-select"
+                      id="checkoutCity"
+                      name="city">
+                <option value="">Спочатку виберіть область</option>
+              </select>
+            </div>
+          </label>
+
+          <label class="checkout-field">
+            <span class="checkout-label">Відділення</span>
+            <div class="checkout-select-wrap">
+              <select class="checkout-input checkout-select"
+                      id="checkoutBranch"
+                      name="branch">
+                <option value="">Спочатку виберіть місто</option>
+              </select>
+            </div>
+          </label>
+        </div>
+
+        <div class="checkout-col">
+          <h3 class="checkout-col-title">ОПЛАТА</h3>
+
+          <div class="checkout-radios">
+            <label class="checkout-radio">
+              <input type="radio" name="payment" value="cod" checked>
+              <span class="checkout-radio-box"></span>
+              <span class="checkout-radio-text">Оплата при отриманні</span>
+            </label>
+
+            <label class="checkout-radio">
+              <input type="radio" name="payment" value="card">
+              <span class="checkout-radio-box"></span>
+              <span class="checkout-radio-text">
+                Оплатити карткою Visa/MasterCard
+              </span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn checkout-submit">
+        ОФОРМИТИ ЗАМОВЛЕННЯ
+      </button>
+    </form>
+  </section>
+
+</main>
+
+<div id="layout-footer"></div>
+
+<script src="../js/layout-header.js"></script>
+<script src="../js/layout-footer.js"></script>
+<script src="../js/models.js"></script>
+<script src="../js/order.js"></script>
+<script src="../js/cart.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/page-main.js"></script>
+
+</body>
+</html>

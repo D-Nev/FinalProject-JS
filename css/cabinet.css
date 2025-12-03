@@ -1,0 +1,278 @@
+.account-page{
+  padding-top: 140px;
+  padding-bottom: 40px;
+}
+
+.account-header{
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.account-title{
+  font-size: 32px;
+  letter-spacing: .36em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.account-logout{
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2px;
+  color: #000;
+}
+
+.account-logout:hover{
+  opacity: .7;
+}
+
+.account-layout{
+  display: flex;
+  align-items: flex-start;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.account-sidebar{
+  width: 260px;
+  margin-right: 80px;
+}
+
+.account-menu-item{
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+}
+
+.account-menu-item + .account-menu-item{
+  margin-top: 4px;
+}
+
+.account-menu-item:hover{
+  border-color: #000;
+}
+
+.account-menu-item--active{
+  border-color: #000;
+}
+
+.account-content{
+  flex: 1;
+}
+
+.account-section-title{
+  font-size: 20px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  margin: 0 0 30px;
+}
+
+.account-form{
+  max-width: 900px;
+  position: relative;
+  padding-top: 36px;
+}
+
+.account-columns{
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+.account-col{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+}
+
+
+
+.account-field{
+  display: block;
+}
+
+.account-label{
+  display: block;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.account-input,
+.account-select{
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  font-size: 14px;
+  outline: none;
+}
+
+.account-input:focus,
+.account-select:focus{
+  border-bottom-color: #000;
+}
+
+.account-col--right{
+  position: relative;
+}
+
+.account-edit-wrapper{
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 0;
+}
+
+.account-edit-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  border-bottom: 1px solid #000;
+}
+
+.account-edit-icon{
+  font-size: 16px;
+}
+
+.account-delivery{
+  margin-top: 0;
+}
+
+.account-delivery-header{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.account-delivery-icon{
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+}
+
+.account-delivery-title{
+  text-transform: uppercase;
+  letter-spacing: .16em;
+}
+
+.account-delivery .account-field + .account-field{
+  margin-top: 32px;
+}
+
+@media (max-width: 1200px){
+  .account-layout{
+    flex-direction: column;
+  }
+  .account-sidebar{
+    width: 100%;
+    margin-bottom: 40px;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px){
+  .account-columns{
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+/* Історія покупок */
+
+.account-orders{
+  max-width: 1100px;
+}
+
+.account-orders-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.account-orders-title{
+  font-size: 20px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.account-reward-title{
+  font-size: 20px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.account-reward-bar{
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  background: #f3f3f3;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.account-reward-bar-fill{
+  height: 100%;
+  width: 0;
+  background: #000;
+}
+
+.account-reward-row{
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 40px;
+}
+
+.account-reward-current,
+.account-reward-total{
+  font-weight: 700;
+}
+
+.account-orders-empty{
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1024px){
+  .account-orders-header{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .account-reward-row{
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}

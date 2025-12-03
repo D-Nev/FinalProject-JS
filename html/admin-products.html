@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Адмін  Категорії і товари</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin-products.css">
+</head>
+<body>
+
+<div id="layout-header"></div>
+
+<main class="page">
+  <section class="admin-products">
+    <div class="wrap">
+      <header class="admin-products-header">
+        <h1 class="admin-products-title">КАТЕГОРІЇ І ТОВАРИ</h1>
+        <p class="admin-products-subtitle">
+          Додавання категорій та товарів для магазину (зберігається у localStorage)
+        </p>
+      </header>
+
+      <div class="admin-products-layout">
+        <section class="admin-products-block">
+          <h2 class="admin-products-block-title">Категорії</h2>
+
+          <form id="adminCategoryForm" class="admin-form">
+            <div class="admin-field">
+              <label for="adminCatName">Назва категорії</label>
+              <input
+                type="text"
+                id="adminCatName"
+                name="name"
+                placeholder="Наприклад: Зимові куртки">
+            </div>
+
+            <div class="admin-field">
+              <label for="adminCatCode">Код категорії (slug)</label>
+              <input
+                type="text"
+                id="adminCatCode"
+                name="code"
+                placeholder="Наприклад: zimovi-kurtky (можна залишити порожнім)">
+            </div>
+
+            <button type="submit" class="admin-btn-primary">
+              Додати категорію
+            </button>
+
+            <p class="admin-hint">
+              Код (slug) використовується як службовий ключ.
+              Якщо залишити порожнім — згенерується автоматично з назви.
+            </p>
+          </form>
+
+          <div class="admin-list-header">
+            <h3 class="admin-list-title">Список категорій</h3>
+            <button
+              type="button"
+              id="adminCategoriesRefresh"
+              class="admin-btn-secondary">
+              Оновити
+            </button>
+          </div>
+
+          <div id="adminCategoriesEmpty" class="admin-empty">
+            Поки що немає жодної категорії.
+          </div>
+
+          <div id="adminCategoriesList" class="admin-cats-list"></div>
+        </section>
+
+        <section class="admin-products-block">
+          <h2 class="admin-products-block-title">Товари</h2>
+
+          <form id="adminProductForm" class="admin-form">
+            <div class="admin-field">
+              <label for="adminProdName">Назва товару</label>
+              <input
+                type="text"
+                id="adminProdName"
+                name="name"
+                placeholder="Наприклад: Зимова куртка Staff...">
+            </div>
+
+            <div class="admin-field">
+              <label for="adminProdCategory">Категорія</label>
+              <select id="adminProdCategory" name="categoryId">
+                <option value="">— Без категорії —</option>
+              </select>
+            </div>
+
+            <div class="admin-two-cols">
+              <div class="admin-field">
+                <label for="adminProdPrice">Ціна, грн</label>
+                <input
+                  type="number"
+                  id="adminProdPrice"
+                  name="price"
+                  min="0"
+                  step="1">
+              </div>
+              <div class="admin-field">
+                <label for="adminProdOldPrice">Стара ціна, грн (необов’язково)</label>
+                <input
+                  type="number"
+                  id="adminProdOldPrice"
+                  name="oldPrice"
+                  min="0"
+                  step="1">
+              </div>
+            </div>
+
+            <div class="admin-field">
+              <label for="adminProdArticle">Артикул (необов’язково)</label>
+              <input
+                type="text"
+                id="adminProdArticle"
+                name="article"
+                placeholder="Наприклад: MS0258-1">
+            </div>
+
+            <div class="admin-field">
+              <label for="adminProdSizes">Розміри (через кому)</label>
+              <input
+                type="text"
+                id="adminProdSizes"
+                name="sizes"
+                placeholder="Наприклад: XS,S,M,L">
+            </div>
+
+            <div class="admin-field">
+              <label for="adminProdColors">Кольори (через кому)</label>
+              <input
+                type="text"
+                id="adminProdColors"
+                name="colors"
+                placeholder="Наприклад: чорний, синій, хакі">
+            </div>
+
+            <div class="admin-field">
+              <label for="adminProdImage">Посилання на головне фото</label>
+              <input
+                type="text"
+                id="adminProdImage"
+                name="image"
+                placeholder="../assets/sale/filename.jpeg">
+            </div>
+
+            <button type="submit" class="admin-btn-primary">
+              Додати товар
+            </button>
+
+            <p class="admin-hint">
+              Нові товари зберігаються у localStorage ("staff_products").
+              Потім їх можна буде використати для рендеру карток/сторінок товарів
+              та роботи фільтрів (розмір, колір, ціна).
+            </p>
+          </form>
+
+          <div class="admin-list-header">
+            <h3 class="admin-list-title">Список товарів</h3>
+            <button
+              type="button"
+              id="adminProductsRefresh"
+              class="admin-btn-secondary">
+              Оновити
+            </button>
+          </div>
+
+          <div id="adminProductsEmpty" class="admin-empty">
+            Поки що немає жодного товару.
+          </div>
+
+          <div id="adminProductsList" class="admin-products-list"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="layout-footer"></div>
+
+<script src="../js/layout-header.js"></script>
+<script src="../js/layout-footer.js"></script>
+<script src="../js/models.js"></script>
+<script src="../js/order.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/page-main.js"></script>
+<script src="../js/admin-products.js"></script>
+</body>
+</html>

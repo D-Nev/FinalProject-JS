@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Особистий кабінет — STAFF</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/order.css">
+  <link rel="stylesheet" href="../css/cabinet.css">
+  <link rel="stylesheet" href="../css/cabinet-bonuses.css">
+</head>
+<body>
+<div id="layout-header"></div>
+
+<main class="account-page">
+  <div class="wrap">
+    <div class="account-header">
+      <h1 class="account-title">ОСОБИСТИЙ КАБІНЕТ</h1>
+      <a href="index.html" class="account-logout">ВИЙТИ З ОБЛІКОВОГО ЗАПИСУ</a>
+    </div>
+
+    <div class="account-layout">
+      <aside class="account-sidebar">
+  <a href="cabinet.html" class="account-menu-item">
+    ДАНІ ТА НАЛАШТУВАННЯ
+  </a>
+  <a href="cabinet-orders.html" class="account-menu-item">
+    ІСТОРІЯ ПОКУПОК
+  </a>
+  <a href="cabinet-promos.html" class="account-menu-item">
+    МОЇ ПРОМОКОДИ
+  </a>
+  <a href="cabinet-bonuses.html" class="account-menu-item account-menu-item--active">
+    ІСТОРІЯ БОНУСІВ
+  </a>
+  <a href="cabinet-reviews.html" class="account-menu-item">
+    ІСТОРІЯ ВІДГУКІВ
+  </a>
+  <a href="index.html" class="account-menu-item account-menu-item--exit">
+    ВИХІД
+  </a>
+</aside>
+
+      <section class="account-content">
+        <h2 class="account-section-title account-bonuses-title">ІСТОРІЯ БОНУСІВ</h2>
+
+        <div class="account-bonuses">
+          <div class="account-bonuses-summary">
+            <div class="account-bonuses-label">Бонуси</div>
+            <div class="account-bonuses-amount">0 грн.</div>
+          </div>
+
+          <a href="#" class="account-bonuses-loyalty">
+            <span class="account-bonuses-icon">%</span>
+            <span class="account-bonuses-link">Про програму лояльності</span>
+          </a>
+        </div>
+
+        <p class="account-bonuses-empty">На жаль, у вас ще немає бонусів</p>
+      </section>
+    </div>
+  </div>
+</main>
+<div id="layout-footer"></div>
+
+
+
+<button class="chat" aria-label="">
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M36.5003 12.599C36.5003 11.11 36.5003 10.3655 36.3046 9.76296C35.9089 8.5452 34.9541 7.59047 33.7364 7.1948C33.1339 6.99902 32.3894 6.99902 30.9003 6.99902H10.1003C8.6113 6.99902 7.86679 6.99902 7.26426 7.1948C6.04651 7.59047 5.09177 8.5452 4.6961 9.76296C4.50033 10.3655 4.50033 11.11 4.50033 12.599V34.2662C4.50033 34.9954 4.50033 35.3599 4.60189 35.5677C4.80963 35.9928 5.28679 36.2141 5.74545 36.0981C5.9697 36.0414 6.24801 35.8059 6.80465 35.3349L11.9289 30.999H30.9003C32.3894 30.999 33.1339 30.999 33.7364 30.8033C34.9541 30.4076 35.9089 29.4528 36.3046 28.2351C36.5003 27.6326 36.5003 26.8881 36.5003 25.399V12.599ZM13.5003 16.999C12.3958 16.999 11.5003 17.8945 11.5003 18.999C11.5003 20.1036 12.3958 20.999 13.5003 20.999C14.6049 20.999 15.5003 20.1036 15.5003 18.999C15.5003 17.8945 14.6049 16.999 13.5003 16.999ZM18.5003 18.999C18.5003 17.8945 19.3958 16.999 20.5003 16.999C21.6049 16.999 22.5003 17.8945 22.5003 18.999C22.5003 20.1036 21.6049 20.999 20.5003 20.999C19.3958 20.999 18.5003 20.1036 18.5003 18.999ZM27.5003 16.999C26.3958 16.999 25.5003 17.8945 25.5003 18.999C25.5003 20.1036 26.3958 20.999 27.5003 20.999C28.6049 20.999 29.5003 20.1036 29.5003 18.999C29.5003 17.8945 28.6049 16.999 27.5003 16.999Z" fill="#fff"></path>
+  </svg>
+</button>
+
+
+<div class="order-overlay" id="orderOverlay" aria-hidden="true">
+  <div class="order-modal" role="dialog" aria-modal="true" aria-labelledby="orderTitle">
+    <button class="order-close" type="button" data-order-close aria-label="Закрити">
+      ×
+    </button>
+
+    <h2 class="order-title" id="orderTitle">ШВИДКЕ ЗАМОВЛЕННЯ</h2>
+
+    <form id="orderForm" novalidate>
+      <div class="order-product">
+        <div class="order-product-main">
+          <div class="order-product-thumb">
+            <img src="assets/new/hat1.jpg"
+                 alt=""
+                 id="orderProductImage">
+          </div>
+          <div class="order-product-text">
+            <div class="order-product-name" id="orderProductName">
+              Шапка Staff mix 2 pattern pompon
+            </div>
+            <div class="order-product-size">
+              РОЗМІР: <span id="orderProductSize">Універсальний</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-product-qty">
+          <button type="button" class="order-qty-btn" data-dir="dec">−</button>
+          <input type="text"
+                 class="order-qty-input"
+                 name="qty"
+                 value="1"
+                 inputmode="numeric">
+          <button type="button" class="order-qty-btn" data-dir="inc">+</button>
+        </div>
+
+        <div class="order-product-price">
+          <span class="order-price-value"
+                id="orderPrice"
+                data-order-price
+                data-base-price="420">
+            420 грн.
+          </span>
+        </div>
+      </div>
+
+      <label class="order-checkbox">
+        <input type="checkbox" id="usePromo">
+        <span>Застосувати промокод</span>
+      </label>
+
+      <div class="order-promo" id="orderPromo">
+        <input type="text"
+               id="promo"
+               class="order-input-promo"
+               placeholder="Введіть промокод">
+        <button type="button"
+                class="order-promo-btn"
+                id="applyPromo">
+          ЗАСТОСУВАТИ
+        </button>
+      </div>
+      <div class="order-promo-msg" id="promoMsg"></div>
+
+      <div class="order-fields">
+        <div class="order-field" data-field="name">
+          <label class="order-label" for="orderName">ПІБ</label>
+          <input type="text"
+                 id="orderName"
+                 name="name"
+                 class="order-input"
+                 placeholder="">
+          <div class="order-error"></div>
+        </div>
+
+        <div class="order-field" data-field="phone">
+          <label class="order-label" for="orderPhone">Номер телефону</label>
+          <input type="tel"
+                 id="orderPhone"
+                 name="phone"
+                 class="order-input order-input--phone"
+                 inputmode="tel">
+          <div class="order-error"></div>
+        </div>
+      </div>
+
+      <div class="order-actions">
+        <button type="button"
+                class="order-btn-cancel"
+                data-order-close>
+          ВІДМІНА
+        </button>
+        <button type="submit" class="order-btn-submit">
+          ОФОРМИТИ ЗАМОВЛЕННЯ
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../js/layout-header.js"></script>
+<script src="../js/layout-footer.js"></script>
+<script src="../js/order.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/page-main.js"></script>
+
+
+</body>
+</html>

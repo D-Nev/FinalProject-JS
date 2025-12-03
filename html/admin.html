@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<header class="admin-header">
+  <div class="admin-header__inner">
+    <div class="admin-logo">STAFF <span>admin</span></div>
+  </div>
+</header>
+
+<main class="admin-main">
+  <section class="admin-card">
+    <h1 class="admin-title">Додавання товару</h1>
+    <p class="admin-subtitle">
+      Введіть назву та ціну товару.
+    </p>
+
+    <form id="productForm" class="admin-form">
+      <div class="form-group">
+        <label for="productName">Назва товару</label>
+        <input type="text" id="productName">
+      </div>
+
+      <div class="form-group">
+        <label for="productPrice">Ціна товару, грн</label>
+        <input
+          type="text"
+          id="productPrice">
+      </div>
+
+      <button type="submit" id="addProductBtn" class="btn-primary">
+        Додати товар
+      </button>
+    </form>
+  </section>
+
+  <section class="admin-list-card">
+    <div class="list-header">
+      <h2 class="clradm">Список товарів (стан localStorage)</h2>
+      <button id="clearProductsBtn" class="btn-secondary">
+        Очистити список
+      </button>
+    </div>
+
+    <p id="emptyState" class="empty-state">
+      Список порожній.
+    </p>
+
+    <ul id="productList" class="product-list">
+    </ul>
+  </section>
+</main>
+
+<footer class="admin-footer">
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    const productForm = document.getElementById('productForm');
+    const productNameInput = document.getElementById('productName');
+    const productPriceInput = document.getElementById('productPrice');
+    const productList = document.getElementById('productList');
+    const emptyState = document.getElementById('emptyState');
+    const clearBtn = document.getElementById('clearProductsBtn');
+
+    const STORAGE_KEY = 'products';
+
+    function updateEmptyState() {
+      const hasItems = productList.children.length > 0;
+      emptyState.style.display = hasItems ? 'none' : 'block';
+    }
+
+    function renderProductToDOM(product) {
+      const li = document.createElement('li');
+      li.classList.add('product-item');
+
+      const nameSpan = document.createElement('span');
+      nameSpan.classList.add('product-name');
+      nameSpan.textContent = product.name;
+
+      const priceSpan = document.createElement('span');
+      priceSpan.classList.add('product-price');
+      priceSpan.textContent = product.price + ' грн';
+
+      const dateSpan = document.createElement('span');
+      dateSpan.classList.add('product-date');
+      dateSpan.textContent = new Date(product.createdAt).toLocaleString('uk-UA');
+
+      li.appendChild(nameSpan);
+      li.appendChild(priceSpan);
+      li.appendChild(dateSpan);
+
+      productList.appendChild(li);
+    }
+
+    function loadProductsFromStorage() {
+      const products = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+
+      productList.innerHTML = '';
+      products.forEach(renderProductToDOM);
+
+      updateEmptyState();
+    }
+
+    function saveNewProduct(name, priceNumber) {
+      const products = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+
+      const product = {
+        name: name,
+        price: priceNumber.toFixed(2),
+        createdAt: new Date().toISOString()
+      };
+
+      products.push(product);
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+
+      renderProductToDOM(product);
+      updateEmptyState();
+    }
+
+    productForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const name = productNameInput.value.trim();
+      const price = productPriceInput.value.trim();
+
+      if (!name || !price) {
+        alert('Будь ласка, введіть назву і ціну товару.');
+        return;
+      }
+
+      const priceNumber = Number(price.replace(',', '.'));
+      if (isNaN(priceNumber) || priceNumber <= 0) {
+        alert('Ціна має бути додатним числом.');
+        return;
+      }
+
+      saveNewProduct(name, priceNumber);
+
+      productForm.reset();
+      productNameInput.focus();
+    });
+
+    clearBtn.addEventListener('click', () => {
+      if (!confirm('Точно очистити всі товари з localStorage?')) return;
+
+      localStorage.removeItem(STORAGE_KEY);
+      productList.innerHTML = '';
+      updateEmptyState();
+    });
+
+    loadProductsFromStorage();
+  });
+</script>
+</body>
+</html>

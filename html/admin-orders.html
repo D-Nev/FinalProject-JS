@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Адмін Замовлення</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin-orders.css">
+</head>
+<body>
+
+<div id="layout-header"></div>
+
+<main class="page">
+  <section class="admin-orders">
+    <div class="wrap">
+      <header class="admin-orders-header">
+        <h1 class="admin-orders-title">ЗАМОВЛЕННЯ</h1>
+        <button type="button"
+                class="admin-orders-clear"
+                id="adminClearOrders">
+          очистити всі
+        </button>
+      </header>
+
+      <div id="adminOrdersEmpty" class="admin-orders-empty">
+        Замовлень поки немає.
+      </div>
+
+      <div id="adminOrdersList" class="admin-orders-list"></div>
+    </div>
+  </section>
+</main>
+
+<div id="layout-footer"></div>
+
+<script src="../js/layout-header.js"></script>
+<script src="../js/layout-footer.js"></script>
+<script src="../js/order.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/admin-orders.js"></script>
+<script src="../js/page-main.js"></script>
+
+</body>
+</html>

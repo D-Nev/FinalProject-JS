@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Адмін  Користувачі</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin-users.css">
+</head>
+<body>
+
+<div id="layout-header"></div>
+
+<main class="page">
+  <section class="admin-users">
+    <div class="wrap">
+      <header class="admin-users-header">
+        <h1 class="admin-users-title">КОРИСТУВАЧІ</h1>
+        <p class="admin-users-subtitle">Реєстрація нових акаунтів вручну</p>
+      </header>
+
+      <div class="admin-users-layout">
+        <section class="admin-users-form-block">
+          <h2 class="admin-users-block-title">Реєстрація нового користувача</h2>
+          <form id="adminUserForm" class="admin-users-form">
+            <div class="admin-users-field">
+              <label for="adminUserName">Ім’я</label>
+              <input type="text" id="adminUserName" name="name" placeholder="Ім’я користувача">
+            </div>
+            <div class="admin-users-field">
+              <label for="adminUserPhone">Номер телефону</label>
+              <input type="text" id="adminUserPhone" name="phone" placeholder="+380… або інший формат">
+            </div>
+            <div class="admin-users-field">
+              <label for="adminUserPass">Пароль</label>
+              <input type="password" id="adminUserPass" name="password">
+            </div>
+            <div class="admin-users-field">
+              <label for="adminUserPass2">Повтор пароля</label>
+              <input type="password" id="adminUserPass2" name="password2">
+            </div>
+
+            <button type="submit" class="admin-users-submit">Зареєструвати</button>
+            <p class="admin-users-hint">
+              Після реєстрації користувач зможе увійти через звичайну форму авторизації на сайті.
+            </p>
+          </form>
+        </section>
+
+        <section class="admin-users-list-block">
+          <div class="admin-users-list-header">
+            <h2 class="admin-users-block-title">Існуючі користувачі</h2>
+            <button type="button" id="adminUsersRefresh" class="admin-users-refresh">Оновити</button>
+          </div>
+
+          <div id="adminUsersEmpty" class="admin-users-empty">
+            Поки що немає жодного зареєстрованого користувача.
+          </div>
+
+          <div id="adminUsersList" class="admin-users-list"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="layout-footer"></div>
+
+<script src="../js/layout-header.js"></script>
+<script src="../js/layout-footer.js"></script>
+<script src="../js/order.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/page-main.js"></script>
+<script src="../js/admin-users.js"></script>
+</body>
+</html>
